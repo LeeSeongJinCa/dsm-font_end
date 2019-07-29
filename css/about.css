@@ -10,18 +10,23 @@ https://love2dev.com/blog/responsive-hero-background-opacity/
     height: 100vh;
     border-radius: 10px;
     text-align: center;
+    /* position: relative; */
 }
 #main::before {
-    background-image: url(/IntroduceMyself/dsm-font_end/imgs/bg_img.png);
+    background-image: url('imgs/bg_img.png');
     background-size: cover;
+    background-repeat: no-repeat;
     content: "";
     display: block;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     opacity: 0.25;
+}
+#main_content {
+    z-index: 1;
 }
 #in_main {
     display: flex;
@@ -33,11 +38,11 @@ https://love2dev.com/blog/responsive-hero-background-opacity/
 }
 #header {
     width: 100%;
-    padding: 10px 30px;
+    padding-top: 50px;
 }
 #in_header {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     width: 100%;
     margin: 0 auto;
@@ -50,6 +55,9 @@ https://love2dev.com/blog/responsive-hero-background-opacity/
     border-radius: 10px;
     font-weight: bold;
     font-size: 1.3em;
+    cursor: pointer;
+    outline: none;
+    z-index: 1;
 }
 .header_btn:hover {
     background-color: #cbcbcb;
@@ -57,7 +65,6 @@ https://love2dev.com/blog/responsive-hero-background-opacity/
 
 #page_two {
     height: 100vh;
-    border-radius: 10px;
     border: 1px solid red;
 }
 
