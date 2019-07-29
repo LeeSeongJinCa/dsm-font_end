@@ -3,6 +3,7 @@
 * 1. 개요 클릭시 해당하는 개요 요소 배경 색깔 주기
 * 2. 개요 클릭시 해당하는 개요의 내용으로 결과물과 느낀점 변경
 * 3. 화살표를 클릭시 개요 변경
+* 4. 메인, 활동 버튼 클릭시 각 버튼에 맞는 페이지로 이동
 */
 
 /*
@@ -188,8 +189,8 @@ var requiz = `<div id="intro">
                             - Web Front-end 100% 기여함<br>
                             - 서버와 연동하면서 회원 관리, 문제 관리 등의 서버 통신 관련 작업을 수행함<br>
                             - 프로젝트 <strong>PM 역할</strong>을 수행하면서 프로젝트 명세서와 보고서를 작성함<br>
-                            (<a href="https://docs.google.com/spreadsheets/d/1RPMrH_2cXKqIZuvVyFlz9yOC1_GlQLksw_WDsCS843w/edit#gid=0">명세서 보러가기</a>)<br>
-                            (<a href="https://docs.google.com/document/d/1-gP4Lq9t7tZ22GSVdHbV02cpLuXMjfCqiV3IjJAFpgU/edit">보고서 보러가기</a>)<br>
+                            <a href="https://docs.google.com/spreadsheets/d/1RPMrH_2cXKqIZuvVyFlz9yOC1_GlQLksw_WDsCS843w/edit#gid=0" target="_blank">명세서 보러가기(새 탭)</a><br>
+                            <a href="https://docs.google.com/document/d/1-gP4Lq9t7tZ22GSVdHbV02cpLuXMjfCqiV3IjJAFpgU/edit" target="_blank">보고서 보러가기(새 탭)</a><br>
                         </p>
                     </div>
                 </div>
@@ -207,14 +208,19 @@ var requiz = `<div id="intro">
                 </div>`
 
 /*
-* 3. 화살표를 클릭시 개요 변경
 * 3번 기능 start */
 var move_page = function(page) {
     move = title_page + page;
     change_div(move);
 }
 
-
+/*
+* 4번 기능 start */
+function goPage(page) {
+    location.href = page;
+}
+/*
+* 4번 기능 end */
 
 
 

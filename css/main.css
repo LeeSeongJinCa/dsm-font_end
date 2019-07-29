@@ -10,6 +10,46 @@
     background-color: #ffffff;
 }
 
+/*! header -> 반응형 만들기*/
+#header {
+    position: absolute;
+    width: 100%;
+    padding-top: 50px;
+}
+#in_header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+.header_btn {
+    width: 100px;
+    height: 50px;
+    margin: 10px 15px;
+    border: 0;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.3em;
+    cursor: pointer;
+    outline: none;
+    z-index: 1;
+}
+.header_btn:hover {
+    background-color: #cbcbcb;
+}
+@media (max-width: 940px) {
+    #header {
+        display: block;
+        position: relative;
+        background-color: #cfcfcf;
+        padding-top: 0;
+    }
+    #in_header {
+        justify-content: center;
+    }
+}
+
 /*! sidebar -> 반응형 만들기 */
 #sidebar {
     position: relative;
@@ -21,10 +61,11 @@
     padding: 30px 0;
     font-size: 2em;
     border-bottom: 2px dashed #a1a1a1;
+    overflow-wrap: break-word;
 }
 #side_title > div > a {
     color: #4a4a4a;
-    font-size: 0.4em;
+    font-size: 0.5em;
 }
 #side_content {
     font-size: 1.2em;
@@ -157,6 +198,9 @@
 }
 #feel_title {
     font-size: 1.3em;
+}
+#feel_content > a {
+    color: #4a4a4a;
 }
 .feel_text {
     line-height: 1.5em;
