@@ -66,6 +66,10 @@ var change_div = function(id) {
         title_page = 0;
         return;
     }
+    else {
+        alert("페이지 이동 오류");
+        return;
+    }
 }
 /*
 *2번 기능 end*/
