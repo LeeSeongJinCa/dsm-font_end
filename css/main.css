@@ -1,10 +1,3 @@
-* {
-    box-sizing: border-box;
-    color: #4a4a4a;
-}
-body {
-    background-color: #c4c4c4;
-}
 #layout {
     min-height: 100vh;
     padding: 15px 50px;
@@ -12,7 +5,6 @@ body {
 #container {
     position: relative;
     display: flex;
-    /* width: 1400px; */
     margin: auto;
     box-shadow: 1px 3px 5px #a1a1a1;
     background-color: #ffffff;
