@@ -1,22 +1,15 @@
-#container {
-    background-color: #ffffff;
-    box-shadow: 1px 3px 5px #a1a1a1;
-}
-
-
+/*  */
 #main {
     height: 100vh;
     border-radius: 10px;
     text-align: center;
-    /* position: relative; */
 }
-/* bg-opacity
+/* 
+* main::befor에 도움을 준 사이트
 https://love2dev.com/blog/responsive-hero-background-opacity/
 */
 #main::before {
-    background-image: url('../imgs/bg_img.png');
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-image: url('../imgs/bg_repeat2.png');
     content: "";
     display: block;
     position: absolute;
@@ -48,12 +41,6 @@ https://love2dev.com/blog/responsive-hero-background-opacity/
 #in_header {
     display: flex;
     justify-content: flex-end;
-    align-items: center;
-    width: 100%;
-    margin: 0 auto;
-}
-#show_menu {
-    display: flex;
 }
 .header_btn {
     width: 100px;
@@ -66,11 +53,14 @@ https://love2dev.com/blog/responsive-hero-background-opacity/
     cursor: pointer;
     outline: none;
     z-index: 1;
+    transition: 0.5s;
+    background-color: #ffffff00;
 }
 .header_btn:hover {
-    background-color: #cbcbcb;
+    transform: scale(1.215);
 }
 #show_menu {
+    display: flex;
     z-index: 1;
 }
 #view_menu {
@@ -100,10 +90,14 @@ https://love2dev.com/blog/responsive-hero-background-opacity/
         display: block;
         margin: 0;
     }
+    #introduce {
+        width: 100% !important;
+    }
 }
 
 /** 자기소개서 */
 #page_two {
+    background-color: #ffffff;
     min-height: 100vh;
     padding: 30px;
 }

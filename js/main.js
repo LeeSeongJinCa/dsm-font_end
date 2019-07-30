@@ -1,4 +1,8 @@
 /*
+* 4. 메인, 활동 버튼 클릭시 각 버튼에 맞는 페이지로 이동
+* 6. Home버튼 누르면 드롭다운 나타내기 */
+
+/*
 * 4번 기능 start */
 function goPage(page) {
     location.href = page;

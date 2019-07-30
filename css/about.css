@@ -37,9 +37,11 @@
     cursor: pointer;
     outline: none;
     z-index: 1;
+    transition: 0.5s;
+    background-color: #ffffff00;
 }
 .header_btn:hover {
-    background-color: #cbcbcb;
+    transform: scale(1.215);
 }
 #show_menu {
     z-index: 1;
@@ -116,7 +118,7 @@
 .active {
     background-color: #a1a1a1;
 }
-
+/** 반응형 작업 */
 @media (max-width: 940px) {
     #container {
         display: block;
@@ -202,10 +204,11 @@
     outline: none;
     margin: 0 30px;
     padding: 5px 10px;
+    background-color: #ffffff00;
 }
 #pic_btns > button:hover {
-    transition: 0.1s;
-    background-color: #919191;
+    transition: 0.25s;
+    transform: scale(1.125);
 }
 #pic_btns > button > img {
     width: 60px;
