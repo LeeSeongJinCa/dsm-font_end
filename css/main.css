@@ -9,7 +9,9 @@
 https://love2dev.com/blog/responsive-hero-background-opacity/
 */
 #main::before {
-    background-image: url('../imgs/bg_repeat2.png');
+    background-image: url('../imgs/bg_img.png');
+    background-repeat: no-repeat;
+    background-size: cover;
     content: "";
     display: block;
     position: absolute;
@@ -22,9 +24,18 @@ https://love2dev.com/blog/responsive-hero-background-opacity/
 #main_content {
     z-index: 1;
 }
+/* * 애니메이션 도움을 준 사이트
+* http://tcpschool.com/css/css3_transform_animation */
 #main_content > h1:last-child {
     color: #eb9623;
     font-size: 2em;
+    /* 메인페이지 가운데 글자 애니메이션 */
+    animation-name: movingPara; /* 애니메이션 이름 주기 */
+    animation-duration: 1.5s; /* 애니메이션 시간 */
+}
+@keyframes movingPara {
+    from { margin-top: 100px; } /* 애니메이션 시작 */
+    to { margin-top: 0px; } /* 애니메이션 끝 */
 }
 #in_main {
     display: flex;
@@ -97,22 +108,12 @@ https://love2dev.com/blog/responsive-hero-background-opacity/
 
 /** 자기소개서 */
 #page_two {
+    /* background-image: url('/IntroduceMyself/dsm-font_end/dsm-font_end/imgs/bg_repeat.png'); */
+    /* background-attachment: fixed; */
     background-color: #ffffff;
     min-height: 100vh;
     padding: 30px;
-}
-#page_two::before {
-    background-image: url('../imgs/.png');
-    background-size: cover;
-    background-repeat: no-repeat round;
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    opacity: 0.25;
+    transition: 0.4s;
 }
 #title {
     font-size: 2.25em;

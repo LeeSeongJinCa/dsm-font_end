@@ -3,7 +3,7 @@
 * 1. 개요 클릭시 해당하는 개요 요소 배경 색깔 주기
 * 2. 개요 클릭시 해당하는 개요의 내용으로 결과물과 느낀점 변경
 * 3. 화살표를 클릭시 개요 변경
-* 4. 메인, 활동 버튼 클릭시 각 버튼에 맞는 페이지로 이동
+* 4. 메인, 활동 버튼 클릭시 각 버튼에 맞는 페이지로 이동 -> a태그로 교체
 * 5. 메인, 활동 버튼 일정 width값 이하일 때 Home버튼으로 교체 -> 현재 css로 적용 중
 * 6. Home버튼 누르면 드롭다운 나타내기
 */
@@ -20,7 +20,7 @@ for(var i = 0; i < subtitle.length; i++) {
     })
 }
 
-var subtitle_bg_clear = function() {
+const subtitle_bg_clear = function() {
     var bg_claer = document.getElementsByClassName('side_subtitle');
     for (var i = 0; i < subtitle.length; i++) {
         bg_claer[i].style.backgroundColor = '#00000000';
@@ -32,12 +32,12 @@ var subtitle_bg_clear = function() {
 /*
 *2번 기능 start*/
 let title_page = 0;
-let right_arrow_btn = document.getElementById('right_arrow_btn');
-let left_arrow_btn = document.getElementById('left_arrow_btn');
+const right_arrow_btn = document.getElementById('right_arrow_btn');
+const left_arrow_btn = document.getElementById('left_arrow_btn');
 window.onload = () => {
     change_div(title_page);
 }
-var change_div = function(id) {
+const change_div = function(id) {
     var subtitle = document.getElementsByClassName('side_subtitle');
     title_page = id;
     var main = document.getElementById('main');
@@ -80,7 +80,7 @@ var change_div = function(id) {
 ! 요소가 클릭되었을 때 HTML을 넣는 방식입니다.
 ! 이 부분은 안 좋은 코드 같다고 생각합니다.
 ? 더 좋은 방법이 있을까요? */
-var intro = `<div id="intro">
+const intro = `<div id="intro">
                     <div id="descrip">
                         <h1 class="in_desc" id="name">이성진</h1>
                         <h2 class="in_desc" id="job">Web Developer</h2>
@@ -88,7 +88,7 @@ var intro = `<div id="intro">
                     </div>
                 </div>`
 
-var pirataje = intro+`
+const pirataje = intro+`
                 <div id="pic_btns">
                     <button id="left_arrow_btn" onclick="move_page(-1);"><img id="left_arrow" class="arrow_img" src="imgs/left_arrow.svg" alt="left_arrow"></button>
                     <button id="right_arrow_btn" onclick="move_page(1);"><img id="right_arrow" class="arrow_img" src="imgs/right-arrow.svg" alt="right_arrow"></button>
@@ -125,7 +125,7 @@ var pirataje = intro+`
                         <img class="pirataje imgs" src="imgs/pirataje/pirataje3.png" alt="img" class="in_pic">
                     </div>
                 </div>`
-var template = intro+`
+const template = intro+`
                 <div id="pic_btns">
                     <button id="left_arrow_btn" onclick="move_page(-1);"><img id="left_arrow" class="arrow_img" src="imgs/left_arrow.svg" alt="left_arrow"></button>
                     <button id="right_arrow_btn" onclick="move_page(1);"><img id="right_arrow" class="arrow_img" src="imgs/right-arrow.svg" alt="right_arrow"></button>
@@ -161,7 +161,7 @@ var template = intro+`
                         <img class="pirataje imgs" src="imgs/template/template2.png" alt="img" class="in_pic">
                     </div>
                 </div>`
-var requiz = intro +`
+const requiz = intro +`
                 <div id="pic_btns">
                     <button id="left_arrow_btn" onclick="move_page(-1);"><img id="left_arrow" class="arrow_img" src="imgs/left_arrow.svg" alt="left_arrow"></button>
                     <button id="right_arrow_btn" onclick="move_page(1);"><img id="right_arrow" class="arrow_img" src="imgs/right-arrow.svg" alt="right_arrow"></button>
@@ -205,16 +205,16 @@ var requiz = intro +`
 
 /*
 * 3번 기능 start */
-var move_page = function(page) {
+const move_page = function(page) {
     move = title_page + page;
     change_div(move);
 }
 
 /*
 * 4번 기능 start */
-function goPage(page) {
-    location.href = page;
-}
+// function goPage(page) {
+//     location.href = page;
+// }
 /*
 * 4번 기능 end */
 
