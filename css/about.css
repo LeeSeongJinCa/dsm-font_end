@@ -1,42 +1,18 @@
+#layout {
+    min-height: 100vh;
+    padding: 15px 50px;
+}
 #container {
-    background-color: #ffffff;
+    position: relative;
+    display: flex;
+    margin: auto;
     box-shadow: 1px 3px 5px #a1a1a1;
+    background-color: #ffffff;
 }
 
-/* bg-opacity
-https://love2dev.com/blog/responsive-hero-background-opacity/
-*/
-#main {
-    height: 100vh;
-    border-radius: 10px;
-    text-align: center;
-    /* position: relative; */
-}
-#main::before {
-    background-image: url('../imgs/bg_img.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    opacity: 0.25;
-}
-#main_content {
-    z-index: 1;
-}
-#in_main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    line-height: 2em;
-    font-size: 2em;
-    height: 80%;
-}
+/*! header -> 반응형 만들기*/
 #header {
+    position: absolute;
     width: 100%;
     padding-top: 50px;
 }
@@ -47,7 +23,7 @@ https://love2dev.com/blog/responsive-hero-background-opacity/
     width: 100%;
     margin: 0 auto;
 }
-.header_btn {
+.header_btn {   
     width: 100px;
     height: 50px;
     margin: 10px 15px;
@@ -62,43 +38,222 @@ https://love2dev.com/blog/responsive-hero-background-opacity/
 .header_btn:hover {
     background-color: #cbcbcb;
 }
+#show_menu {
+    z-index: 1;
+}
+#view_menu {
+    display: none;
+}
 @media (max-width: 940px) {
     #header {
         display: block;
         position: relative;
-        padding-top: 0;
+        background-color: #cfcfcf;
+        padding-top: 10px;
     }
     #in_header {
         justify-content: center;
     }
+    #go_main {
+        display: none;
+    }
+    #go_activity {
+        display: none;
+    }
+    #view_menu {
+        display: block;
+    }
+    #show_menu {
+        bottom: -100px;
+        position: absolute;
+    }
+    .header_btn {
+        display: block;
+        margin: 0;
+    }
 }
 
-/** 자기소개서 */
-#page_two {
-    min-height: 100vh;
+/*! sidebar -> 반응형 만들기 */
+#sidebar {
+    position: relative;
+    width: 15%;
+    /* width: 211px; */
+    text-align: center;
+}
+#side_title {
+    padding: 30px 0;
+    font-size: 2em;
+    border-bottom: 2px dashed #a1a1a1;
+    overflow-wrap: break-word;
+    background-color: #cfcfcf;
+}
+#side_title > div {
+    margin: 15px 0;
+}
+#side_title > div > a {
+    color: #4a4a4a;
+    font-size: 0.5em;
+}
+#side_content {
+    font-size: 1.2em;
+}
+.side_subtitle {
+    padding: 40px 5px;
+    cursor: pointer;
+}
+.side_subtitle:hover {
+    background-color: #bababa;
+}
+.active {
+    background-color: #a1a1a1;
+}
+
+@media (max-width: 940px) {
+    #container {
+        display: block;
+        width: auto;
+    }
+    #sidebar {
+        width: 100%;
+    }
+    #side_content {
+        display: flex;
+    }
+    .side_subtitle {
+        padding: 15px 0;
+        flex: 1;
+        font-size: 0.75em;
+    }
+    #main {
+        width: auto !important;
+    }
+    #pic > h3 {
+        font-size: 1.3em;
+    }
+}
+
+/*! main */
+#main {
+    width: 85%;
+}
+/** introduce */
+#intro {
+    position: relative;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to top, #ffffff, #aaaaaa);
+}
+/** 소개 */
+#descrip {
+    text-align: center;
     padding: 30px;
 }
-#title {
-    font-size: 2.25em;
-    padding: 15px 10px;
+.in_desc {
+    margin: 30px 0;
 }
-#title > h1 {
-    padding-bottom: 3px;
-    border-bottom: 2px solid #c4c4c4;
+#name {
+    font-size: 3em;
 }
-#introduce {
-    padding: 15px 10px;
+#job {
+    font-size: 1.8em;
 }
-.introduce_subtitle {
-    margin-bottom: 5px;
-    font-size: 1.325em;
-    word-break: break-all;
+#nickname {
+    font-size: 1.5em;
 }
-.introduce_text {
-    line-height: 30px;
-    margin-top: 30px;
+/** explan */
+.in_explan {
+    padding: 0 15px;
+}
+.explan_h1 {
+    padding: 10px 0;
+    font-size: 1.75em;
+}
+.explan_h2 {
+    margin-left: 30px;
+    font-size: 1.25em;
+}
+.explan_p {
+    margin: 6px;
     font-size: 1.125em;
 }
+
+/*! pictures */
+#pics {
+    text-align: center;
+    background: linear-gradient(to bottom, #ffffff, #aaaaaa);
+}
+/** 사진 넘기는 버튼 */
+#pic_btns {
+    text-align: center;
+}
+#pic_btns > button {
+    border: 0;
+    border-radius: 5px;
+    outline: none;
+    margin: 0 30px;
+    padding: 5px 10px;
+}
+#pic_btns > button:hover {
+    transition: 0.1s;
+    background-color: #919191;
+}
+#pic_btns > button > img {
+    width: 60px;
+    height: 30px;
+}
+/** 사진 */
+#pic {
+    margin-top: 30px;
+}
+#pic > h3 {
+    background-color: #f1f1f1;
+    font-size: 1.3em;
+    padding: 20px 0;
+    width: 100%;
+    margin: 0 auto;
+}
+.imgs {
+    width: 100%;
+    height: auto;
+}
+/** 느낀점 */
+#feel {
+    min-height: 20vh;
+    padding: 10px 30px;
+}
+#feel_title {
+    font-size: 1.3em;
+}
+#feel_content > a {
+    color: #4a4a4a;
+}
+.feel_text {
+    line-height: 1.5em;
+    margin: 9px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
