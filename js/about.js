@@ -23,7 +23,7 @@ for(var i = 0; i < subtitle.length; i++) {
 var subtitle_bg_clear = function() {
     var bg_claer = document.getElementsByClassName('side_subtitle');
     for (var i = 0; i < subtitle.length; i++) {
-        bg_claer[i].style.backgroundColor = '#cfcfcf';
+        bg_claer[i].style.backgroundColor = '#00000000';
     }
 }
 /*
@@ -36,15 +36,6 @@ let right_arrow_btn = document.getElementById('right_arrow_btn');
 let left_arrow_btn = document.getElementById('left_arrow_btn');
 window.onload = () => {
     change_div(title_page);
-    /* 기능 5
-    width = window.innerWidth;
-    if (width > 940) {
-        view_menu();
-    }
-    else {
-        view_menu2();
-    }
-    */
 }
 var change_div = function(id) {
     var subtitle = document.getElementsByClassName('side_subtitle');
@@ -89,13 +80,15 @@ var change_div = function(id) {
 ! 요소가 클릭되었을 때 HTML을 넣는 방식입니다.
 ! 이 부분은 안 좋은 코드 같다고 생각합니다.
 ? 더 좋은 방법이 있을까요? */
-var pirataje = `<div id="intro">
+var intro = `<div id="intro">
                     <div id="descrip">
-                        <h1 class="in_desc" id="name">1217_이성진</h1>
+                        <h1 class="in_desc" id="name">이성진</h1>
                         <h2 class="in_desc" id="job">Web Developer</h2>
-                        <h4 class="in_desc" id="nickname">개발자</h4>
+                        <h4 class="in_desc" id="nickname"> 개발자</h4>
                     </div>
-                </div>
+                </div>`
+
+var pirataje = intro+`
                 <div id="pic_btns">
                     <button id="left_arrow_btn" onclick="move_page(-1);"><img id="left_arrow" class="arrow_img" src="imgs/left_arrow.svg" alt="left_arrow"></button>
                     <button id="right_arrow_btn" onclick="move_page(1);"><img id="right_arrow" class="arrow_img" src="imgs/right-arrow.svg" alt="right_arrow"></button>
@@ -132,13 +125,7 @@ var pirataje = `<div id="intro">
                         <img class="pirataje imgs" src="imgs/pirataje/pirataje3.png" alt="img" class="in_pic">
                     </div>
                 </div>`
-var template = `<div id="intro">
-                    <div id="descrip">
-                        <h1 class="in_desc" id="name">1217_이성진</h1>
-                        <h2 class="in_desc" id="job">Web Developer</h2>
-                        <h4 class="in_desc" id="nickname">개발자</h4>
-                    </div>
-                </div>
+var template = intro+`
                 <div id="pic_btns">
                     <button id="left_arrow_btn" onclick="move_page(-1);"><img id="left_arrow" class="arrow_img" src="imgs/left_arrow.svg" alt="left_arrow"></button>
                     <button id="right_arrow_btn" onclick="move_page(1);"><img id="right_arrow" class="arrow_img" src="imgs/right-arrow.svg" alt="right_arrow"></button>
@@ -174,13 +161,7 @@ var template = `<div id="intro">
                         <img class="pirataje imgs" src="imgs/template/template2.png" alt="img" class="in_pic">
                     </div>
                 </div>`
-var requiz = `<div id="intro">
-                    <div id="descrip">
-                        <h1 class="in_desc" id="name">1217_이성진</h1>
-                        <h2 class="in_desc" id="job">Web Developer</h2>
-                        <h4 class="in_desc" id="nickname">개발자</h4>
-                    </div>
-                </div>
+var requiz = intro +`
                 <div id="pic_btns">
                     <button id="left_arrow_btn" onclick="move_page(-1);"><img id="left_arrow" class="arrow_img" src="imgs/left_arrow.svg" alt="left_arrow"></button>
                     <button id="right_arrow_btn" onclick="move_page(1);"><img id="right_arrow" class="arrow_img" src="imgs/right-arrow.svg" alt="right_arrow"></button>
@@ -191,7 +172,7 @@ var requiz = `<div id="intro">
                             <h1 class="explan_h1">리퀴즈</h1>
                         </div>
                         <div class="explan_subtitle">
-                            <h2 class="explan_h2">생에 첫 팀 프로젝트</h2>
+                            <h2 class="explan_h2">생애 첫 팀 프로젝트</h2>
                             <p class="explan_p">퀴즈 시스템을 기획하고 퀴즈 사이트 구현</p>
                         </div>
                     </div>
@@ -267,7 +248,7 @@ window.addEventListener('resize', (e) => {
 })
 */
 /*
-* 방법 2 */
+* 방법 2 
 var in_header = document.getElementById('in_header');
 var original_main = document.getElementById('go_main');
 var original_activity = document.getElementById('go_activity');
@@ -291,14 +272,23 @@ var view_menu2 = function() {
     original_activity.style.display = 'none';
     change_menu.style.display = 'block';
 }
-
+*/
 
 /*
 * 6번 기능 시작 */
-document.getElementById('show_menu').style.display = 'flex';
-document.getElementById('view_menu').onmouseover = () => mouse_over();
-document.getElementById('view_menu').onmouseout = () => mouse_out();
-
+window.addEventListener('resize', () => {
+    width = window.innerWidth;
+    if(width > 940) {
+        mouse_over();
+    }
+})
+function mouser_click(select) {
+    if(select === true) {
+        mouse_over();
+    } else {
+        mouse_out();
+    }
+}
 function mouse_over() {
     document.getElementById('go_main').style.display = "block";
     document.getElementById('go_activity').style.display = "block";
@@ -307,8 +297,14 @@ function mouse_out() {
     document.getElementById('go_main').style.display = "none";
     document.getElementById('go_activity').style.display = "none";
 }
+
+let mouse_key = false;
+document.getElementById('view_menu').addEventListener('click', () => {
+    mouse_key = !mouse_key;
+    mouser_click(mouse_key);
+})
 /*
-* 6번 기능 끝 */
+* 6번 기능 끝  */
 
 
 
