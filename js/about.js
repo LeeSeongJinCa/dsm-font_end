@@ -13,14 +13,14 @@
 ? 클릭시 배경 색을 초기화하는 함수를 실행하고, 
 ? 클릭한 요쇼의 배경 색만 바뀌게 만들었습니다. */
 var subtitle = document.getElementsByClassName('side_subtitle');
-for(var i = 0; i < subtitle.length; i++) {
-    subtitle[i].addEventListener('click', function() {
+for (var i = 0; i < subtitle.length; i++) {
+    subtitle[i].addEventListener('click', function () {
         subtitle_bg_clear();
         this.style.backgroundColor = '#a1a1a1';
     })
 }
 
-const subtitle_bg_clear = function() {
+const subtitle_bg_clear = function () {
     var bg_claer = document.getElementsByClassName('side_subtitle');
     for (var i = 0; i < subtitle.length; i++) {
         bg_claer[i].style.backgroundColor = '#00000000';
@@ -37,28 +37,28 @@ const left_arrow_btn = document.getElementById('left_arrow_btn');
 window.onload = () => {
     change_div(title_page);
 }
-const change_div = function(id) {
+const change_div = function (id) {
     var subtitle = document.getElementsByClassName('side_subtitle');
     title_page = id;
     var main = document.getElementById('main');
-    if(id === 0) {
+    if (id === 0) {
         main.innerHTML = pirataje;
-        subtitle_bg_clear();    
+        subtitle_bg_clear();
         subtitle[id].style.backgroundColor = '#a1a1a1';
         document.getElementById('left_arrow_btn').style.visibility = 'hidden';
     }
-    else if(id === 1) {
+    else if (id === 1) {
         main.innerHTML = template;
         subtitle_bg_clear();
         subtitle[id].style.backgroundColor = '#a1a1a1';
     }
-    else if(id === 2) {
+    else if (id === 2) {
         main.innerHTML = requiz;
         subtitle_bg_clear();
         subtitle[id].style.backgroundColor = '#a1a1a1';
         document.getElementById('right_arrow_btn').style.visibility = 'hidden';
     }
-    else if(id > 2) {
+    else if (id > 2) {
         alert("페이지 업 오류");
         title_page = 2;
         return;
@@ -87,12 +87,11 @@ const intro = `<div id="intro">
                         <h4 class="in_desc" id="nickname"> 개발자</h4>
                     </div>
                 </div>`
-
-const pirataje = intro+`
-                <div id="pic_btns">
+const pic_btn = `<div id="pic_btns">
                     <button id="left_arrow_btn" onclick="move_page(-1);"><img id="left_arrow" class="arrow_img" src="imgs/left_arrow.svg" alt="left_arrow"></button>
                     <button id="right_arrow_btn" onclick="move_page(1);"><img id="right_arrow" class="arrow_img" src="imgs/right-arrow.svg" alt="right_arrow"></button>
-                </div>
+                </div>`
+const pirataje = intro + `
                 <div id="explan" class="pirataje">
                     <div class="in_explan">
                         <div class="explan_title">
@@ -124,12 +123,8 @@ const pirataje = intro+`
                         <h3>랭크 페이지</h3>
                         <img class="pirataje imgs" src="imgs/pirataje/pirataje3.png" alt="img" class="in_pic">
                     </div>
-                </div>`
-const template = intro+`
-                <div id="pic_btns">
-                    <button id="left_arrow_btn" onclick="move_page(-1);"><img id="left_arrow" class="arrow_img" src="imgs/left_arrow.svg" alt="left_arrow"></button>
-                    <button id="right_arrow_btn" onclick="move_page(1);"><img id="right_arrow" class="arrow_img" src="imgs/right-arrow.svg" alt="right_arrow"></button>
-                </div>
+                </div>`+ pic_btn
+const template = intro + `
                 <div id="explan" class="template">
                     <div class="in_explan">
                         <div class="explan_title">
@@ -160,12 +155,8 @@ const template = intro+`
                         <h3>게시판 페이지</h3>
                         <img class="pirataje imgs" src="imgs/template/template2.png" alt="img" class="in_pic">
                     </div>
-                </div>`
-const requiz = intro +`
-                <div id="pic_btns">
-                    <button id="left_arrow_btn" onclick="move_page(-1);"><img id="left_arrow" class="arrow_img" src="imgs/left_arrow.svg" alt="left_arrow"></button>
-                    <button id="right_arrow_btn" onclick="move_page(1);"><img id="right_arrow" class="arrow_img" src="imgs/right-arrow.svg" alt="right_arrow"></button>
-                </div>
+                </div>`+ pic_btn
+const requiz = intro + `
                 <div id="explan" class="template">
                     <div class="in_explan">
                         <div class="explan_title">
@@ -201,11 +192,11 @@ const requiz = intro +`
                         <h3>회원 정보 수정 페이지</h3>
                         <img class="pirataje imgs" src="imgs/requiz/requiz4.png" alt="img" class="in_pic">
                     </div>
-                </div>`
+                </div>` + pic_btn
 
 /*
 * 3번 기능 start */
-const move_page = function(page) {
+const move_page = function (page) {
     move = title_page + page;
     change_div(move);
 }
@@ -278,12 +269,12 @@ var view_menu2 = function() {
 * 6번 기능 시작 */
 window.addEventListener('resize', () => {
     width = window.innerWidth;
-    if(width > 940) {
+    if (width > 940) {
         mouse_over();
     }
 })
 function mouser_click(select) {
-    if(select === true) {
+    if (select === true) {
         mouse_over();
     } else {
         mouse_out();
